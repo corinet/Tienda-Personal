@@ -1,0 +1,6 @@
+const https = require('https');
+https.get('https://corinet.github.io/Tienda-Personal/src/assets/Product1.png', (res) => {
+  console.log('Status Code:', res.statusCode);
+  console.log('Content-Length:', res.headers['content-length']);
+  console.log('Content-Type:', res.headers['content-type']);
+});

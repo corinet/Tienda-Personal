@@ -168,12 +168,24 @@ ul {
 
 /* Hero */
 .hero {
-    background: url('./assets/HeroBanner.jpg') center/cover no-repeat;
-    min-height: 400px;
-    padding: 0;
-    color: #fff;
+    width: 100%;
     position: relative;
     overflow: hidden;
+    display: flex;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .hero-image {
+        min-height: 250px;
+    }
 }
 
 .hero-container {
