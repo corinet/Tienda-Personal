@@ -20,17 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Modal Logic
-    const modal = document.getElementById('product-modal');
-    const modalClose = document.querySelector('.modal-close');
+    // View Switching Logic
+    const landingView = document.getElementById('landing-view');
+    const productView = document.getElementById('product-view');
+    const backToStoreBtn = document.getElementById('back-to-store');
+    const breadcrumbProductName = document.getElementById('breadcrumb-product-name');
     const productCards = document.querySelectorAll('.product-card');
 
-    const modalMainImg = document.getElementById('modal-main-img');
-    const modalThumbnails = document.querySelector('.modal-thumbnails');
-    const modalTitle = document.getElementById('modal-title');
-    const modalOldPrice = document.getElementById('modal-old-price');
-    const modalPrice = document.getElementById('modal-price');
-    const modalInstallments = document.getElementById('modal-installments');
+    const detailMainImg = document.getElementById('detail-main-img');
+    const detailThumbnails = document.querySelector('.product-thumbnails');
+    const detailTitle = document.getElementById('detail-title');
+    const detailOldPrice = document.getElementById('detail-old-price');
+    const detailPrice = document.getElementById('detail-price');
+    const detailInstallments = document.getElementById('detail-installments');
     const colorOptions = document.querySelector('.color-options');
     const selectedColorName = document.getElementById('selected-color-name');
 
@@ -52,26 +54,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const price = card.querySelector('.product-price').textContent;
             const installments = card.querySelector('.product-installments').textContent;
 
-            // Populate modal
-            modalMainImg.src = imgSrc;
-            modalTitle.textContent = title;
-            modalOldPrice.textContent = oldPrice;
-            modalPrice.textContent = price;
-            modalInstallments.textContent = installments;
+            // Populate product view
+            breadcrumbProductName.textContent = title;
+            detailMainImg.src = imgSrc;
+            detailTitle.textContent = title;
+            detailOldPrice.textContent = oldPrice;
+            detailPrice.textContent = price;
+            detailInstallments.textContent = installments;
 
             // Setup thumbnails (mocking multiple images)
-            modalThumbnails.innerHTML = '';
+            detailThumbnails.innerHTML = '';
             for (let i = 0; i < 3; i++) {
                 const thumb = document.createElement('img');
                 thumb.src = imgSrc;
                 if (i === 0) thumb.classList.add('active');
                 
                 thumb.addEventListener('click', () => {
-                    document.querySelectorAll('.modal-thumbnails img').forEach(img => img.classList.remove('active'));
+                    document.querySelectorAll('.product-thumbnails img').forEach(img => img.classList.remove('active'));
                     thumb.classList.add('active');
-                    modalMainImg.src = thumb.src;
+                    detailMainImg.src = thumb.src;
                 });
-                modalThumbnails.appendChild(thumb);
+                detailThumbnails.appendChild(thumb);
             }
 
             // Setup colors
@@ -95,23 +98,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 colorOptions.appendChild(colorBtn);
             });
 
-            // Show modal
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            // Switch views
+            landingView.style.display = 'none';
+            productView.style.display = 'block';
+            window.scrollTo(0, 0);
         });
     });
 
-    // Close modal
-    const closeModal = () => {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    };
-
-    modalClose.addEventListener('click', closeModal);
-    
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
+    // Back to store logic
+    backToStoreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        productView.style.display = 'none';
+        landingView.style.display = 'block';
+        window.scrollTo(0, 0);
     });
 });

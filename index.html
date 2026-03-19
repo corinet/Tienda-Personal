@@ -58,6 +58,7 @@
         </div>
     </div>
 
+    <main id="landing-view">
     <!-- Hero -->
     <section class="hero">
         <div class="container hero-container">
@@ -338,33 +339,40 @@
         </div>
     </section>
 
-    <!-- Product Detail Modal -->
-    <div id="product-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-body">
-                <div class="modal-gallery">
-                    <img id="modal-main-img" src="" alt="Product Image">
-                    <div class="modal-thumbnails">
+    </main>
+
+    <!-- Product Detail View -->
+    <main id="product-view" style="display: none;">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="#" id="back-to-store">Tienda</a>
+                <span class="separator">&gt;</span>
+                <span id="breadcrumb-product-name">Producto</span>
+            </nav>
+            
+            <div class="product-detail-layout">
+                <div class="product-gallery">
+                    <img id="detail-main-img" src="" alt="Product Image">
+                    <div class="product-thumbnails">
                         <!-- Thumbnails will be injected here -->
                     </div>
                 </div>
-                <div class="modal-info">
-                    <h2 id="modal-title"></h2>
-                    <div class="modal-price-container">
-                        <span id="modal-old-price" class="product-old-price"></span>
-                        <span id="modal-price" class="product-price"></span>
-                        <span id="modal-installments" class="product-installments"></span>
+                <div class="product-info">
+                    <h1 id="detail-title"></h1>
+                    <div class="product-price-container">
+                        <span id="detail-old-price" class="product-old-price"></span>
+                        <span id="detail-price" class="product-price"></span>
+                        <span id="detail-installments" class="product-installments"></span>
                     </div>
                     
-                    <div class="modal-colors">
+                    <div class="product-colors">
                         <h4>Color: <span id="selected-color-name"></span></h4>
                         <div class="color-options">
                             <!-- Color options will be injected here -->
                         </div>
                     </div>
 
-                    <div class="modal-payment">
+                    <div class="product-payment">
                         <h4>Medios de pago</h4>
                         <div class="payment-methods">
                             <img src="https://logospng.org/download/visa/logo-visa-2048.png" alt="Visa" height="24">
@@ -377,7 +385,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="/src/main.js"></script>
 </body>
