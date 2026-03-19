@@ -168,7 +168,7 @@ ul {
 
 /* Hero */
 .hero {
-    background: url('/HeroBanner.jpg') center/cover no-repeat;
+    background: url('../public/HeroBanner.jpg') center/cover no-repeat;
     min-height: 400px;
     padding: 0;
     color: #fff;
