@@ -338,6 +338,47 @@
         </div>
     </section>
 
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <img id="modal-main-img" src="" alt="Product Image">
+                    <div class="modal-thumbnails">
+                        <!-- Thumbnails will be injected here -->
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <div class="modal-price-container">
+                        <span id="modal-old-price" class="product-old-price"></span>
+                        <span id="modal-price" class="product-price"></span>
+                        <span id="modal-installments" class="product-installments"></span>
+                    </div>
+                    
+                    <div class="modal-colors">
+                        <h4>Color: <span id="selected-color-name"></span></h4>
+                        <div class="color-options">
+                            <!-- Color options will be injected here -->
+                        </div>
+                    </div>
+
+                    <div class="modal-payment">
+                        <h4>Medios de pago</h4>
+                        <div class="payment-methods">
+                            <img src="https://logospng.org/download/visa/logo-visa-2048.png" alt="Visa" height="24">
+                            <img src="https://logospng.org/download/mastercard/logo-mastercard-2048.png" alt="Mastercard" height="24">
+                            <img src="https://logospng.org/download/mercado-pago/logo-mercado-pago-icon-2048.png" alt="Mercado Pago" height="24">
+                        </div>
+                    </div>
+
+                    <button class="btn-buy">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/src/main.js"></script>
 </body>
 </html>
